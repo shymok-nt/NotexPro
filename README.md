@@ -19,3 +19,15 @@ Kitaplık başlangıçta gerçek bir defter listesine bağlı boş durum göster
 4. `app` yapılandırmasını çalıştırın.
 
 Tablet/telefon düzeni Compose Window Size Class ile seçilir. Durumlar `rememberSaveable` ve `ViewModel` ile ekran döndürmelerinde korunur.
+
+## GitHub Actions ile APK
+
+`main` dalına yapılan her push, `.github/workflows/build.yml` iş akışını tetikler. İş akışı Java 17 ile `assembleDebug` çalıştırır ve `kalemlik-apk` adlı artifact olarak debug APK'yı yükler.
+
+Yerel makinede Java 17 kuruluysa:
+
+```bash
+./gradlew assembleDebug
+```
+
+APK yolu: `app/build/outputs/apk/debug/app-debug.apk`
